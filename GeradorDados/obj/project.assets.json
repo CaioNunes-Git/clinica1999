@@ -1,0 +1,189 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Bogus/35.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Bogus.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Bogus.Healthcare/35.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Bogus": "35.5.0"
+        },
+        "compile": {
+          "lib/net6.0/Bogus.Healthcare.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Bogus.Healthcare.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Bogus.Hollywood/35.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Bogus": "35.5.0"
+        },
+        "compile": {
+          "lib/net6.0/Bogus.Hollywood.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Bogus.Hollywood.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Bogus/35.5.0": {
+      "sha512": "iCXszbIvvxgfb01bPe/s3R6pQSKX6rpcQWqM7wqDt+lsMogR6fkSWBwqOxLpdXmMB7mgZNNk2hm2M1shoIiekA==",
+      "type": "package",
+      "path": "bogus/35.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bogus.35.5.0.nupkg.sha512",
+        "bogus.nuspec",
+        "lib/net40/Bogus.dll",
+        "lib/net40/Bogus.xml",
+        "lib/net6.0/Bogus.dll",
+        "lib/net6.0/Bogus.xml",
+        "lib/netstandard1.3/Bogus.dll",
+        "lib/netstandard1.3/Bogus.xml",
+        "lib/netstandard2.0/Bogus.dll",
+        "lib/netstandard2.0/Bogus.xml"
+      ]
+    },
+    "Bogus.Healthcare/35.5.0": {
+      "sha512": "Tl4uDdwzZ/BSG0kpV2jPFLgr0UfNpFzByOtoEDFykRTC/U1OXAiBFZZnsthlaHrzUBo4QYtNSrLT3hLuLwbsvA==",
+      "type": "package",
+      "path": "bogus.healthcare/35.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bogus.healthcare.35.5.0.nupkg.sha512",
+        "bogus.healthcare.nuspec",
+        "lib/net40/Bogus.Healthcare.dll",
+        "lib/net40/Bogus.Healthcare.xml",
+        "lib/net6.0/Bogus.Healthcare.dll",
+        "lib/net6.0/Bogus.Healthcare.xml",
+        "lib/netstandard1.3/Bogus.Healthcare.dll",
+        "lib/netstandard1.3/Bogus.Healthcare.xml",
+        "lib/netstandard2.0/Bogus.Healthcare.dll",
+        "lib/netstandard2.0/Bogus.Healthcare.xml"
+      ]
+    },
+    "Bogus.Hollywood/35.5.0": {
+      "sha512": "8jmP9jdJqSPkHUn64lFT5uYrvZwnEu48+hd/pgiRyFVh/HIgxQQvHCDBVOUtNfBqs+Urr+h/Clhlr8cj8e1V1Q==",
+      "type": "package",
+      "path": "bogus.hollywood/35.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bogus.hollywood.35.5.0.nupkg.sha512",
+        "bogus.hollywood.nuspec",
+        "lib/net40/Bogus.Hollywood.dll",
+        "lib/net40/Bogus.Hollywood.xml",
+        "lib/net6.0/Bogus.Hollywood.dll",
+        "lib/net6.0/Bogus.Hollywood.xml",
+        "lib/netstandard1.3/Bogus.Hollywood.dll",
+        "lib/netstandard1.3/Bogus.Hollywood.xml",
+        "lib/netstandard2.0/Bogus.Hollywood.dll",
+        "lib/netstandard2.0/Bogus.Hollywood.xml"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Bogus >= 35.5.0",
+      "Bogus.Healthcare >= 35.5.0",
+      "Bogus.Hollywood >= 35.5.0"
+    ]
+  },
+  "packageFolders": {
+    "/root/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/davi/Documents/GeradorDados/GeradorDados/GeradorDados.csproj",
+      "projectName": "GeradorDados",
+      "projectPath": "/home/davi/Documents/GeradorDados/GeradorDados/GeradorDados.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/home/davi/Documents/GeradorDados/GeradorDados/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/root/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "file:///home/davi/Documents/Telerik": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "Bogus": {
+            "target": "Package",
+            "version": "[35.5.0, )"
+          },
+          "Bogus.Healthcare": {
+            "target": "Package",
+            "version": "[35.5.0, )"
+          },
+          "Bogus.Hollywood": {
+            "target": "Package",
+            "version": "[35.5.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
