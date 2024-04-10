@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "FoklbpLf5rsqO1vWmO3Chsu2QfJRZ6ZE44+D0KDxrhlarYPXFnh6ihYNErAyF5k5v5ZhUh5JK2Cv9jGAcHyqwA==",
+  "dgSpecHash": "dfTI55On3Lzgf+og7DV9Vh9o7Zi9mCZz/1B7fy0KU4qhB/+V+x4hmYbh72xDB31bLtVZEM89dsGcrFRYYTf22Q==",
   "success": true,
-  "projectFilePath": "/home/davi/Documents/GeradorDados/GeradorDados/GeradorDados.csproj",
+  "projectFilePath": "/home/davione/RiderProjects/clinica1999/GeradorDados/GeradorDados.csproj",
   "expectedPackageFiles": [
-    "/root/.nuget/packages/bogus/35.5.0/bogus.35.5.0.nupkg.sha512",
-    "/root/.nuget/packages/bogus.healthcare/35.5.0/bogus.healthcare.35.5.0.nupkg.sha512",
-    "/root/.nuget/packages/bogus.hollywood/35.5.0/bogus.hollywood.35.5.0.nupkg.sha512"
+    "/home/davione/.nuget/packages/bogus/35.5.0/bogus.35.5.0.nupkg.sha512",
+    "/home/davione/.nuget/packages/bogus.healthcare/35.5.0/bogus.healthcare.35.5.0.nupkg.sha512",
+    "/home/davione/.nuget/packages/bogus.hollywood/35.5.0/bogus.hollywood.35.5.0.nupkg.sha512"
   ],
   "logs": []
 }

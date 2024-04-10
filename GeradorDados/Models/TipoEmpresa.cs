@@ -1,9 +1,13 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace GeradorDados.Models;
 
-public class TipoEmpresa(int tipoEmpresaId, string nome)
+public class TipoEmpresa
 {
-    [Key] public int TipoEmpresaId { get; set; } = tipoEmpresaId;
-    public string Nome { get; set; } = nome;
+    public TipoEmpresa(int tipoempresaid, string nome)
+    {
+        Tipoempresaid = tipoempresaid;
+        Nome = nome;
+    }
+
+    public int Tipoempresaid { get; set; }
+    public string Nome { get; set; }
 }

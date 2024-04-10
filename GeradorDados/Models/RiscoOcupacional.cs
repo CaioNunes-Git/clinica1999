@@ -1,12 +1,15 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace GeradorDados.Models;
 
-public class RiscoOcupacional (int RiscoOcupacionalId, string Descricao, int? TipoRiscoId)
+public class RiscoOcupacional
 {
-    [Key] public int RiscoOcupacionalId = RiscoOcupacionalId;
+    public RiscoOcupacional(int riscoocupacionalid, string descricao, int? tiporiscoid)
+    {
+        Riscoocupacionalid = riscoocupacionalid;
+        Descricao = descricao;
+        Tiporiscoid = tiporiscoid;
+    }
 
-    [ForeignKey("TipoRiscoId")]
-    public virtual TipoRisco TipoRisco { get; set; }
+    public int Riscoocupacionalid { get; set; }
+    public string Descricao { get; set; }
+    public int? Tiporiscoid { get; set; }
 }

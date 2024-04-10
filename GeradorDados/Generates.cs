@@ -9,44 +9,44 @@ public class Generates
     public List<Empresa> Empresas()
     {
         var empresas = new Faker<Empresa>("pt_BR")
-            .RuleFor(c => c.EmpresaId, f => f.IndexFaker)
+            .RuleFor(c => c.Empresaid, f => f.IndexFaker)
             .RuleFor(c => c.Cnpj, f => f.Company.Cnpj())
             .RuleFor(c => c.Nome, f => f.Company.CompanyName())
             .RuleFor(c => c.Endereco, f => f.Address.StreetAddress())
             .RuleFor(c => c.Telefone, f => f.Phone.PhoneNumber())
-            .RuleFor(c => c.TipoEmpresaId, f => f.Random.Int(1,21));
+            .RuleFor(c => c.Tipoempresaid, f => f.Random.Int(1,21));
         return empresas.Generate(10);
     }
     
     public List<Funcionario> Funcionarios(List<Empresa> empresas)
     {
         var funcionarios = new Faker<Funcionario>("pt_BR")
-            .RuleFor(c => c.FuncionarioId, f => f.IndexFaker)
-            .RuleFor(c => c.CPF, f => f.Person.Cpf())
-            .RuleFor(c => c.DataNascimento, f => f.Date.Past(18))
-            .RuleFor(c => c.CargoId, faker => faker.Random.Int(1,40))
-            .RuleFor(c => c.EmpresaId, f => f.PickRandom(empresas.Select(x => x.EmpresaId)));
+            .RuleFor(c => c.Funcionarioid, f => f.IndexFaker)
+            //.RuleFor(c => c., f => f.Person.Cpf())
+            .RuleFor(c => c.Datanascimento, f => f.Date.Past(18))
+            .RuleFor(c => c.Cargoid, faker => faker.Random.Int(1,40))
+            .RuleFor(c => c.Empresaid, f => f.PickRandom(empresas.Select(x => x.Empresaid)));
         return funcionarios.Generate(10);
     }
 
     public List<Clinica> Clinicas(List<Empresa> empresas)
     {
-        var empresasId = empresas.Select(x => x.EmpresaId);
+        var empresasId = empresas.Select(x => x.Empresaid);
         var clienteFaker = new Faker<Clinica>("pt_BR")
-            .RuleFor(c => c.ClinicaId, f => f.IndexFaker)
+            .RuleFor(c => c.Clinicaid, f => f.IndexFaker)
             .RuleFor(c => c.Cnpj, f => f.Company.Cnpj())
             .RuleFor(c => c.Nome, f => "Clinica " + f.Company.CompanyName())
-            .RuleFor(c => c.EmpresaId, f => f.PickRandom(empresasId));
+            .RuleFor(c => c.Empresaid, f => f.PickRandom(empresasId));
         return clienteFaker.Generate(10);
     }
 
     public List<Medico> Medicos(List<Medico> clinicas)
     {
         var clienteFaker = new Faker<Medico>("pt_BR")
-            .RuleFor(c => c.MedicoId, f => f.IndexFaker)
+            .RuleFor(c => c.Medicoid, f => f.IndexFaker)
             .RuleFor(c => c.Nome, f => f.Name.FullName())
-            .RuleFor(c => c.Crm, f => $"{f.Random.Int(10000, 99999)}/{f.Address.State()}")
-            .RuleFor(c => c.ClinicaId, f => f.PickRandom(clinicas.Select(x => x.ClinicaId)));
+            .RuleFor(c => c.Crm, f => $"{f.Random.Int(10000, 99999)}/{f.Address.State()}");
+            //.RuleFor(c => c.ClinicaId, f => f.PickRandom(clinicas.Select(x => x.ClinicaId)));
         return clienteFaker.Generate(10);
     }
 

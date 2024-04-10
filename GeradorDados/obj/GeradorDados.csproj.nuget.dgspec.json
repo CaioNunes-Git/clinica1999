@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/home/davi/Documents/GeradorDados/GeradorDados/GeradorDados.csproj": {}
+    "/home/davione/RiderProjects/clinica1999/GeradorDados/GeradorDados.csproj": {}
   },
   "projects": {
-    "/home/davi/Documents/GeradorDados/GeradorDados/GeradorDados.csproj": {
+    "/home/davione/RiderProjects/clinica1999/GeradorDados/GeradorDados.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/davi/Documents/GeradorDados/GeradorDados/GeradorDados.csproj",
+        "projectUniqueName": "/home/davione/RiderProjects/clinica1999/GeradorDados/GeradorDados.csproj",
         "projectName": "GeradorDados",
-        "projectPath": "/home/davi/Documents/GeradorDados/GeradorDados/GeradorDados.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/home/davi/Documents/GeradorDados/GeradorDados/obj/",
+        "projectPath": "/home/davione/RiderProjects/clinica1999/GeradorDados/GeradorDados.csproj",
+        "packagesPath": "/home/davione/.nuget/packages/",
+        "outputPath": "/home/davione/RiderProjects/clinica1999/GeradorDados/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/davione/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "file:///home/davi/Documents/Telerik": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
