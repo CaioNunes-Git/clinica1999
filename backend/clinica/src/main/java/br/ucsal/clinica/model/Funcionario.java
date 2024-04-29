@@ -20,8 +20,11 @@ public class Funcionario {
     private String nome;
     private LocalDateTime dataNascimento;
 
-    @Column(name = "cargo_id")
+    @OneToOne
+    @JoinColumn(name = "cargo_id")
     private Cargo cargo;
-    @Column(name = "empresa_id")
+
+    @OneToOne
+    @JoinColumn(name = "empresa_id")
     private Empresa empresa;
 }

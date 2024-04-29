@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table("risco_ocupacional")
 @AllArgsConstructor
@@ -17,6 +20,7 @@ public class RiscoOcupacional {
     private Long id;
     private String nome;
 
+    @OneToMany
     @Column(name = "tipo_risco_id")
-    private TipoRisco tipoRisco;
+    private List<TipoRisco> tipoRisco = new ArrayList<>();
 }

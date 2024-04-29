@@ -1,13 +1,13 @@
 package br.ucsal.clinica.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.relational.core.mapping.Table;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table("clinica")
@@ -21,6 +21,9 @@ public class Clinica {
     private Long cnpj;
     private String nome;
 
-    private Empresa empresa;
-    private Medico medico;
+    @OneToMany
+    private List<Empresa> empresa = new ArrayList<>();
+
+    @OneToMany
+    private List<Medico> medico = new ArrayList<>();
 }

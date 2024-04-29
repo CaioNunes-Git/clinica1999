@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.util.List;
+
 @Entity
 @Table("empresa")
 @AllArgsConstructor
@@ -18,5 +20,7 @@ public class Empresa {
     private String cnpj;
     private String nomeFantasia;
 
-    private TipoEmpresa tipoEmpresa;
+    @OneToMany
+    @Column(name = "tipo_empresa_id")
+    private List<TipoEmpresa> tipoEmpresa;
 }

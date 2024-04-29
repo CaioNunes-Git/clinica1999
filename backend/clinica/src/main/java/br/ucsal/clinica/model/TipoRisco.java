@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
-@Table("tipo_empresa")
+@Table("tipo_risco")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
