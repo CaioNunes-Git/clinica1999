@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "dfTI55On3Lzgf+og7DV9Vh9o7Zi9mCZz/1B7fy0KU4qhB/+V+x4hmYbh72xDB31bLtVZEM89dsGcrFRYYTf22Q==",
+  "dgSpecHash": "bkmaCKk51MjzUFlZpyAhmZZ1+x3UKwEOqtcNoKD5McyHkRru+HWRt2xyVFVqFkCboqp6ePqCuPPuOxH9ejBcxw==",
   "success": true,
-  "projectFilePath": "/home/davione/RiderProjects/clinica1999/GeradorDados/GeradorDados.csproj",
+  "projectFilePath": "X:\\Clinica\\massa_de_dados\\GeradorDados\\GeradorDados.csproj",
   "expectedPackageFiles": [
-    "/home/davione/.nuget/packages/bogus/35.5.0/bogus.35.5.0.nupkg.sha512",
-    "/home/davione/.nuget/packages/bogus.healthcare/35.5.0/bogus.healthcare.35.5.0.nupkg.sha512",
-    "/home/davione/.nuget/packages/bogus.hollywood/35.5.0/bogus.hollywood.35.5.0.nupkg.sha512"
+    "C:\\Users\\davis\\.nuget\\packages\\bogus\\35.5.0\\bogus.35.5.0.nupkg.sha512",
+    "C:\\Users\\davis\\.nuget\\packages\\bogus.healthcare\\35.5.0\\bogus.healthcare.35.5.0.nupkg.sha512",
+    "C:\\Users\\davis\\.nuget\\packages\\bogus.hollywood\\35.5.0\\bogus.hollywood.35.5.0.nupkg.sha512",
+    "C:\\Users\\davis\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
+    "C:\\Users\\davis\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\davis\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\davis\\.nuget\\packages\\npgsql\\8.0.2\\npgsql.8.0.2.nupkg.sha512"
   ],
   "logs": []
 }

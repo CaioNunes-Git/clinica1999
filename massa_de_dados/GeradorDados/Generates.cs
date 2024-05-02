@@ -6,16 +6,26 @@ namespace GeradorDados;
 
 public class Generates
 {
-    public List<Empresa> Empresas(int quantidade)
+    public List<Empresa> Empresas(List<TipoEmpresa> tipoEmpresas, int quantidade)
     {
-        var empresas = new Faker<Empresa>("pt_BR")
+        var faker = new Faker<Empresa>("pt_BR")
             .RuleFor(c => c.Empresaid, f => f.IndexFaker)
-            .RuleFor(c => c.Cnpj, f => f.Company.Cnpj())
+            .RuleFor(c => c.Cnpj, f => f.Company.Cnpj(false))
             .RuleFor(c => c.Nome, f => f.Company.CompanyName())
             .RuleFor(c => c.Endereco, f => f.Address.StreetAddress())
             .RuleFor(c => c.Telefone, f => f.Phone.PhoneNumber())
-            .RuleFor(c => c.Tipoempresaid, f => f.Random.Int(1, 21));
-        return empresas.Generate(quantidade);
+            .RuleFor(c => c.Tipoempresaid, f => f.Random.Int(1, 21))
+            .RuleFor(c => c.Tipoempresaid, f => f.PickRandom(tipoEmpresas.Select(x => x.Tipoempresaid)));
+        
+        var empresas = faker.Generate(quantidade);
+        
+        var uniqueEmpresas = new Dictionary<string, Empresa>();
+        foreach (var empresa in empresas.Where(empresa => !uniqueEmpresas.ContainsKey(empresa.Cnpj)))
+        {
+            uniqueEmpresas.Add(empresa.Cnpj, empresa);
+        }
+        
+        return uniqueEmpresas.Values.ToList();
     }
 
     public async Task<List<Funcionario>> Funcionarios(List<Empresa> empresas, int quantidade)
@@ -32,6 +42,18 @@ public class Generates
         } );
         
     }
+    
+    public async Task<List<FuncionarioRisco>> FuncionarioRisco(List<Funcionario> funcionarios,List<RiscoOcupacional> riscos, int quantidade)
+    {
+        return await Task.Run(() =>
+        {
+            var funcionarioRisco = new Faker<FuncionarioRisco>("pt_BR")
+                .RuleFor(c => c.Funcionarioid, f => f.PickRandom(funcionarios.Select(x => x.Funcionarioid)))
+                .RuleFor(c => c.RiscoOcupacionalid, f => f.PickRandom(riscos.Select(x => x.Riscoocupacionalid)));
+            return funcionarioRisco.Generate(quantidade);
+        } );
+        
+    }
 
     public List<Clinica> Clinicas(List<Empresa> empresas, int quantidade)
     {
@@ -44,17 +66,26 @@ public class Generates
         return clienteFaker.Generate(quantidade);
     }
     
-    public async Task<List<Medico>> Medicos(List<Clinica> clinicas, int quantidades)
+    public async Task<List<Medico>> Medicos(List<Clinica> clinicas, int quantidade)
     {
         
         return await Task.Run(() =>
         {
-            var clienteFaker = new Faker<Medico>("pt_BR")
+            var faker = new Faker<Medico>("pt_BR")
                 .RuleFor(c => c.Medicoid, f => f.IndexFaker)
                 .RuleFor(c => c.Nome, f => f.Name.FullName())
                 .RuleFor(c => c.Crm, f => $"{f.Random.Int(10000, 99999)}/{f.Address.StateAbbr()}");
             //.RuleFor(c => c.ClinicaId, f => f.PickRandom(clinicas.Select(x => x.ClinicaId)));
-            return clienteFaker.Generate(quantidades);
+            var medicos = faker.Generate(quantidade);
+
+            // Utiliza um dicionário para filtrar por CNPJ único
+            var uniqueMedicos = new Dictionary<string, Medico>();
+            foreach (var medico in medicos.Where(medico => !uniqueMedicos.ContainsKey(medico.Crm)))
+            {
+                uniqueMedicos.Add(medico.Crm, medico);
+            }
+            
+            return uniqueMedicos.Values.ToList();;
         });
         
     }
@@ -204,8 +235,12 @@ public class Generates
                 .RuleFor(c => c.Exametipoid, f => f.PickRandom(exameTipos.Select(x => x.Exametipoid)))
                 .RuleFor(c => c.Dataexame, f => f.Date.Recent())
                 .RuleFor(c => c.Funcionarioid, f => f.PickRandom(funcionarios.Select(x => x.Funcionarioid)))
-                .RuleFor(c => c.Medicoid, f => f.PickRandom(medicos.Select(x => x.Medicoid)));
-            return exames.Generate(quantidade);
+                .RuleFor(c => c.Medicoid, f => f.PickRandom(medicos.Select(x => x.Medicoid)))
+                .FinishWith((f, u) =>
+                {
+                    Console.WriteLine("Exame Criado! Id={0}", u.Exameid);
+                });;
+            return exames.GenerateForever().Take(quantidade).ToList();
         });
     }
 
@@ -216,7 +251,10 @@ public class Generates
             var atestados = new Faker<Atestado>("pt_BR")
                 .RuleFor(c => c.Atestadoid, f => f.IndexFaker)
                 .RuleFor(c => c.Funcionarioid, f => f.PickRandom(funcionarios.Select(x => x.Funcionarioid)))
-                .RuleFor(c => c.Medicoid, f => f.PickRandom(medicos.Select(x => x.Medicoid)));
+                .RuleFor(c => c.Medicoid, f => f.PickRandom(medicos.Select(x => x.Medicoid))).FinishWith((f, u) =>
+                {
+                    Console.WriteLine("Atestado Criado! Id={0}", u.Atestadoid);
+                });;
             return atestados.Generate(quantidade);
         }));
     }

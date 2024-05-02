@@ -7,4 +7,5 @@ public class Atestado
     public int? Qtddias { get; set; }
     public int? Funcionarioid { get; set; }
     public int? Medicoid { get; set; }
+    public int ExameId { get; set; }
 }
