@@ -1,19 +1,22 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-    const appointments = ['Dental Checkup', 'Routine Blood Test'];
-    const prescriptions = ['Amoxicillin', 'Ibuprofen'];
+    const axios = require('axios').default;
     
-    const appointmentsEl = document.getElementById('appointments');
-    appointments.forEach((appointment) => {
-        const p = document.createElement('p');
-        p.innerHTML = appointment;
-        appointmentsEl.appendChild(p);
-    });
+    axios.get('http://localhost:8080/funcionario')
+    .then(function (response) {
+        const funcionarios = response.data.content; 
 
-    const prescriptionsEl = document.getElementById('prescriptions');
-    prescriptions.forEach((prescription) => {
-        const p = document.createElement('p');
-        p.innerHTML = prescription;
-        prescriptionsEl.appendChild(p);
+        updateDashboard(funcionarios);
+    })
+    .catch(function (error) {
+        console.error('Erro ao carregar dados do backend:', error);
     });
 });
+
+function updateDashboard(funcionarios) {
+    const funcionariosEl = document.getElementById('funcionarios');
+    funcionarios.forEach((funcionario) => {
+        const p = document.createElement('p');
+        p.textContent = funcionario.nome; 
+        funcionariosEl.appendChild(p);
+    });
+}
