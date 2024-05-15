@@ -19,7 +19,7 @@
       <PackageReference Include="Bogus.Healthcare" Version="35.5.0" />
       <PackageReference Include="Bogus.Hollywood" Version="35.5.0" />
       <PackageReference Include="Dapper" Version="2.1.35" />
-      <PackageReference Include="Npgsql" Version="8.0.2" />
+      <PackageReference Include="Npgsql" Version="8.0.3" />
     </ItemGroup>
 
 </Project>
