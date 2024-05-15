@@ -9,12 +9,29 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../dashboard.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listagem.html">Lista de Funcionários</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="container">
     <h1>Clínica Médica</h1>
     
-    <input type="text" id="filtroInput" class="form-control mb-3" placeholder="Buscar pacientes...">
+    <input type="text" id="filtroInput" class="form-control mb-3" placeholder="Buscar funcionários...">
     
-    <ul id="listaPacientes" class="list-group">
+    <ul id="listaFuncionarios" class="list-group">
     </ul>
     
     <nav>
@@ -27,51 +44,37 @@
   <script>
     let paginaAtual = 1;
 
-    // Função para gerar a lista de pacientes
+    // Função para gerar a lista de funcionários
     function gerarLista() {
-      let listaPacientes = document.getElementById('listaPacientes');
-      listaPacientes.innerHTML = ''; // Limpa os pacientes anteriores
+      let listaFuncionarios = document.getElementById('listaFuncionarios');
+      listaFuncionarios.innerHTML = ''; // Limpa os funcionários anteriores
       
-      let pacientesPorPagina = 7; // Número de pacientes por página
-      let pacientes = [
-        { nome: 'Paciente 1', descricao: 'Descrição do Paciente 1'},
-        { nome: 'Paciente 2', descricao: 'Descrição do Paciente 2'},
-        { nome: 'Paciente 3', descricao: 'Descrição do Paciente 3'},
-        { nome: 'Paciente 4', descricao: 'Descrição do Paciente 4'},
-        { nome: 'Paciente 5', descricao: 'Descrição do Paciente 5'},
-        { nome: 'Paciente 6', descricao: 'Descrição do Paciente 6'},
-        { nome: 'Paciente 7', descricao: 'Descrição do Paciente 7'},
-        { nome: 'Paciente 8', descricao: 'Descrição do Paciente 8'},
-        { nome: 'Paciente 9', descricao: 'Descrição do Paciente 9'},
-        { nome: 'Paciente 10', descricao: 'Descrição do Paciente 10'},
-        { nome: 'Paciente 11', descricao: 'Descrição do Paciente 11'},
-        { nome: 'Paciente 12', descricao: 'Descrição do Paciente 12'},
-        { nome: 'Paciente 13', descricao: 'Descrição do Paciente 13'},
-        { nome: 'Paciente 14', descricao: 'Descrição do Paciente 14'},
-        { nome: 'Paciente 15', descricao: 'Descrição do Paciente 15'},
-        { nome: 'Paciente 16', descricao: 'Descrição do Paciente 16'},
-        { nome: 'Paciente 17', descricao: 'Descrição do Paciente 17'},
-        { nome: 'Paciente 18', descricao: 'Descrição do Paciente 18'},
-        { nome: 'Paciente 19', descricao: 'Descrição do Paciente 19'},
-        { nome: 'Paciente 20', descricao: 'Descrição do Paciente 20'}
-      ]; // Exemplo de pacientes
+      let funcionariosPorPagina = 7; // Número de funcionários por página
+      let funcionarios = [];
+      
+      for (let i = 1; i <= 100; i++) {
+        funcionarios.push({ 
+          nome: `Funcionário ${i}`, 
+          descricao: `Descrição do Funcionário ${i}`
+        });
+      } // Gera funcionários de 1 a 100
 
       let filtro = document.getElementById('filtroInput').value.trim().toUpperCase();
-      let pacientesFiltrados = pacientes.filter(paciente =>
-        paciente.nome.toUpperCase().includes(filtro) || 
-        paciente.descricao.toUpperCase().includes(filtro) ||
-        paciente.preco.toUpperCase().includes(filtro)
+      let funcionariosFiltrados = funcionarios.filter(funcionario =>
+        funcionario.nome.toUpperCase().includes(filtro) || 
+        funcionario.descricao.toUpperCase().includes(filtro) ||
+        funcionario.preco.toUpperCase().includes(filtro)
       );
       
-      let inicio = (paginaAtual - 1) * pacientesPorPagina;
-      let fim = inicio + pacientesPorPagina;
+      let inicio = (paginaAtual - 1) * funcionariosPorPagina;
+      let fim = inicio + funcionariosPorPagina;
       
-      for (let i = inicio; i < fim && i < pacientesFiltrados.length; i++) {
-        let paciente = pacientesFiltrados[i];
+      for (let i = inicio; i < fim && i < funcionariosFiltrados.length; i++) {
+        let funcionario = funcionariosFiltrados[i];
         let li = document.createElement('li');
         li.className = 'list-group-item';
-        li.innerHTML = `<strong>${paciente.nome}</strong><br>${paciente.descricao}`;
-        listaPacientes.appendChild(li);
+        li.innerHTML = `<strong>${funcionario.nome}</strong><br>${funcionario.descricao}`;
+        listaFuncionarios.appendChild(li);
       }
     }
     
@@ -80,18 +83,15 @@
       let paginacao = document.getElementById('paginacao');
       paginacao.innerHTML = ''; // Limpa os links anteriores
       
-      let pacientesPorPagina = 7; // Número de pacientes por página
-      let pacientes = [
-        'Paciente 1', 'Paciente 2', 'Paciente 3', 'Paciente 4', 'Paciente 5', 'Paciente 6', 'Paciente 7', 'Paciente 8', 'Paciente 9', 'Paciente 10',
-        'Paciente 11', 'Paciente 12', 'Paciente 13', 'Paciente 14', 'Paciente 15', 'Paciente 16', 'Paciente 17', 'Paciente 18', 'Paciente 19', 'Paciente 20'
-      ]; // Exemplo de pacientes
+      let funcionariosPorPagina = 7; // Número de funcionários por página
+      let funcionarios = Array.from({ length: 100 }, (_, i) => `Funcionário ${i + 1}`); // Gera funcionários de 1 a 100
 
       let filtro = document.getElementById('filtroInput').value.trim().toUpperCase();
-      let pacientesFiltrados = pacientes.filter(paciente => 
-        paciente.toUpperCase().includes(filtro)
+      let funcionariosFiltrados = funcionarios.filter(funcionario => 
+        funcionario.toUpperCase().includes(filtro)
       );
       
-      let totalPaginas = Math.ceil(pacientesFiltrados.length / pacientesPorPagina);
+      let totalPaginas = Math.ceil(funcionariosFiltrados.length / funcionariosPorPagina);
       
       for (let i = 1; i <= totalPaginas; i++) {
         let li = document.createElement('li');
@@ -104,11 +104,29 @@
         link.addEventListener('click', function() {
           paginaAtual = i;
           gerarLista();
+          atualizarPaginacao();
         });
+        
+        if (i === paginaAtual) {
+          li.classList.add('active');
+        }
         
         li.appendChild(link);
         paginacao.appendChild(li);
       }
+    }
+    
+    // Função para atualizar a paginação
+    function atualizarPaginacao() {
+      let paginacao = document.getElementById('paginacao');
+      let links = paginacao.getElementsByTagName('li');
+      
+      for (let link of links) {
+        link.classList.remove('active');
+      }
+      
+      let items = paginacao.getElementsByTagName('a');
+      items[paginaAtual - 1].parentNode.classList.add('active');
     }
     
     // Inicializa a lista e a paginação
