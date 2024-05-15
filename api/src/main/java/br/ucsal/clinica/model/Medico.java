@@ -4,10 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
-@Table("medico")
+@Table(name = "medico")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

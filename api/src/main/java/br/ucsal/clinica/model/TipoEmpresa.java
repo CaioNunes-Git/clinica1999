@@ -1,11 +1,13 @@
 package br.ucsal.clinica.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.data.relational.core.mapping.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
-@Table("tipo_empresa")
+@Table(name = "tipo_empresa")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

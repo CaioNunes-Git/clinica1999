@@ -4,12 +4,12 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.relational.core.mapping.Table;
+
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table("funcionario")
+@Table(name = "funcionario")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
